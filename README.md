@@ -6,7 +6,7 @@ SAP Copilot is a multi-package workspace for AI-assisted SAP development using M
 
 - `abap-adt-mcp/`: Python MCP server for SAP ABAP ADT tooling
 - `apps/gateway/`: Python gateway and orchestration layer
-- `web/`: Main frontend application (Vite + React)
+- `apps/web/`: Main frontend application (Vite + React)
 - `convex/`: Convex backend functions and schema
 - `convex-dashboard/`: Dashboard UI for Convex data inspection
 - `packages/shared/`: Shared package(s) for cross-app code
