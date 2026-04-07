@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "convex/react": ["./node_modules/convex/dist/cjs-types/react/index.d.ts"],
+      "convex/server": ["./node_modules/convex/dist/cjs-types/server/index.d.ts"],
+      "convex/values": ["./node_modules/convex/dist/cjs-types/values/index.d.ts"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

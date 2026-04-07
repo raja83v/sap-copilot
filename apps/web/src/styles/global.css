@@ -1,0 +1,60 @@
+/* Import design tokens and component utilities */
+@import "./tokens.css";
+@import "./components.css";
+
+/* ─── Global Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--sapFontFamily);
+  background: var(--sapBackgroundColor);
+  color: var(--sapTextColor);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar (global) ──────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--sapScrollBar_FaceColor); border-radius: 3px; }
+
+/* Legacy class aliases kept for backward compatibility */
+.chat-messages::-webkit-scrollbar       { width: 6px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--sapScrollBar_FaceColor); border-radius: 3px; }
+
+/* ─── Legacy compat (removed inline styles depend on these) ────── */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.connected    { background: var(--sapPositiveColor); }
+.status-dot.disconnected { background: var(--sapNeutralColor); }
+.status-dot.error        { background: var(--sapNegativeColor); }
+.status-dot.connecting   {
+  background: var(--sapInformativeColor, var(--sapInformationColor));
+  animation: sap-pulse 1.5s ease-in-out infinite;
+}
+
+.sidebar-transition  { transition: width 0.2s ease-in-out; }
+.tool-call-expand    { transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out; overflow: hidden; }
+.typing-cursor::after {
+  content: "▋";
+  animation: sap-blink 1s infinite;
+  color: var(--sapBrandColor);
+}
+.code-block {
+  font-family: var(--sapFontMonoFamily, "Courier New", monospace);
+  font-size: 13px;
+  line-height: 1.5;
+  tab-size: 2;
+}

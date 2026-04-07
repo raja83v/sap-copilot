@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "abap-adt-mcp"
+version = "0.1.0"
+description = "Python MCP server for SAP ABAP Development Tools (ADT)"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "abap-adt-mcp contributors"},
+]
+keywords = ["sap", "abap", "adt", "mcp", "ai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+]
+
+dependencies = [
+    "mcp>=1.0",
+    "httpx[http2]>=0.27",
+    "click>=8.1",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "websockets>=12.0",
+    "lxml>=5.0",
+    "aiosqlite>=0.20",
+]
+
+[project.optional-dependencies]
+lua = ["lupa>=2.0"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-httpx>=0.30",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "lxml-stubs",
+]
+all = ["abap-adt-mcp[lua,dev]"]
+
+[project.scripts]
+vsp = "vsp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+    "integration: marks tests requiring a live SAP system",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM", "TCH"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true

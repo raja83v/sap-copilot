@@ -1,0 +1,22 @@
+{
+  "name": "sap-copilot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Chat Frontend for SAP Systems via MCP",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev:web": "pnpm --filter @sap-copilot/web dev",
+    "dev:convex": "corepack pnpm exec convex dev --typecheck=disable",
+    "dev:convex:push": "corepack pnpm exec convex dev --once --typecheck=disable",
+    "dev:gateway": ".\\.venv\\Scripts\\python.exe -m uvicorn gateway:app --port 8080 --app-dir apps/gateway",
+    "build:web": "pnpm --filter @sap-copilot/web build",
+    "dev:dashboard": "pnpm --filter convex-dashboard dev"
+  },
+  "devDependencies": {
+    "convex": "^1.17.0",
+    "turbo": "^2.3.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
